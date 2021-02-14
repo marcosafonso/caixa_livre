@@ -7,6 +7,9 @@ import { VendaComponent } from './venda/venda.component';
 import { FormsModule } from '@angular/forms';
 import { ItensComponent } from './itens/itens.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import {LOCALE_ID} from '@angular/core';
+
 
 @NgModule({
   declarations: [
@@ -19,9 +22,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgSelectModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule  
+    HttpClientModule,
+    NgbModule  
   ],
-  providers: [],
+  providers: [
+    // {provide: LOCALE_ID,
+    // useValue: "pt-BR"
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

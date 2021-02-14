@@ -77,17 +77,20 @@ export class ItensComponent implements OnInit {
     console.log("eu sei");
     console.log(id_item);
     console.log("eu nao sei");
-    this.api.deleteItemVenda(id_item).subscribe(
-      data => {
-        console.log("Deletado Item.");
-        this.item = new Item;
-        this.loadVendaItemCompleto();
-          
-      },
-      error => {
-        console.log("Aconteceu um erro no delete Item.", error.message);
-      }
-    )
+
+    if(confirm("Você quer realmente deletar este item?"+' id: '+id_item)) {
+      this.api.deleteItemVenda(id_item).subscribe(
+        data => {
+          console.log("Deletado Item.");
+          this.item = new Item;
+          this.loadVendaItemCompleto();
+            
+        },
+        error => {
+          console.log("Aconteceu um erro no delete Item.", error.message);
+        }
+      )
+    }
   };
   
 

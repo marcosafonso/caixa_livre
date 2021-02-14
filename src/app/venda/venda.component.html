@@ -1,49 +1,54 @@
 
-<form>
-        <!--Using ng-option and for loop-->
-        <!-- <ng-select [(ngModel)]="selectedVendedor">
-            <ng-option *ngFor="let vendedor of vendedores" [value]="vendedor.id">{{vendedor.nome}}</ng-option>
-        </ng-select> -->
-
-        <label for="vendedor">Selecione o Vendedor</label>
-        <ng-select [items]="vendedores" 
-           bindLabel="nome" 
-           bindValue="id" 
-           name="vendedor"
-           [(ngModel)]="selectedVendedor">
-        </ng-select>
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="form-group col-lg-4">
+                <label for="vendedor">Selecione o Vendedor</label>
+                <ng-select [items]="vendedores" 
+                    bindLabel="nome" 
+                    bindValue="id" 
+                    name="vendedor"
+                    [(ngModel)]="selectedVendedor">
+                </ng-select>
+            </div>
+        </div>
         
-        <label for="cliente">Selecione o Cliente</label>
-        <ng-select [items]="clientes" 
-           bindLabel="nome" 
-           required
-           bindValue="id" 
-           name="cliente"
-           [(ngModel)]="selectedCliente">
-        </ng-select>
+        <div class="row">
+            <div class="form-group col-lg-4">
+                <label for="cliente">Selecione o Cliente</label>
+                <ng-select [items]="clientes" 
+                    bindLabel="nome" 
+                    required
+                    bindValue="id" 
+                    name="cliente"
+                    [(ngModel)]="selectedCliente">
+                </ng-select>
+            </div>
+        </div>
 
 
         <button (click)="criaVenda()" *ngIf="!modo_edicao" >
             Iniciar Venda
         </button>
-        
-        
-        <!-- <button (click)="cancel()" >
-            Cancelar
-        </button> -->
-</form>
-
+            
+            
+            <!-- <button (click)="cancel()" >
+                Cancelar
+            </button> -->
+    </form>
+</div>
 
 <div *ngIf="modo_edicao">
     <app-itens [id_venda]="venda.id"></app-itens>
-
-    <button (click)="finalizaVenda()">
-        Finalizar Venda
-      </button>
-      
-      <button (click)="cancelaVenda()">
-        Cancela Venda
-      </button>
+    <div class="container">
+        <button (click)="finalizaVenda()" class="btn btn-success">
+            Finalizar Venda
+        </button>
+        
+        <button (click)="cancelaVenda()" class="btn btn-warning">
+            Cancela Venda
+        </button>
+    </div>
 
 </div>
 
