@@ -5,6 +5,7 @@ import { AppComponent } from './../app.component';
 import { VendaService } from './venda.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-venda',
@@ -35,12 +36,13 @@ export class VendaComponent implements OnInit {
       this.venda.cliente = this.selectedCliente;
 
       this.api.saveNewVenda(this.venda).subscribe(
-        data => {
+        (data) => {
           console.log("Criado.")
           this.modo_edicao = true;
           this.venda = data;
         },
-        error => {
+        (error: HttpErrorResponse) => {
+          console.log(error)
           console.log("Aconteceu um erro no cadastro venda.", error.message);
         }
       )
@@ -51,8 +53,10 @@ export class VendaComponent implements OnInit {
       this.api.updateVenda(this.venda, this.venda.id).subscribe(
         data => {
           console.log("Finalizado.")
-          this.modo_edicao = true;
-          this.venda = data;
+          // this.modo_edicao = true;
+          // this.venda = data;
+          this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+          this.router.navigate(['venda']));
         },
         error => {
           console.log("Aconteceu um erro no finaliza venda.", error.message);
@@ -61,17 +65,21 @@ export class VendaComponent implements OnInit {
     };
 
     cancelaVenda(){ 
-      this.venda.situacao = 3; // Cancelada 
-      this.api.updateVenda(this.venda, this.venda.id).subscribe(
-        data => {
-          console.log("Cancelada.")
-          this.modo_edicao = true;
-          this.venda = data;
-        },
-        error => {
-          console.log("Aconteceu um erro no cancela venda.", error.message);
-        }
-      )
+      if(confirm("Você quer realmente cancelar esta venda?")) {
+        this.venda.situacao = 3; // Cancelada 
+        this.api.updateVenda(this.venda, this.venda.id).subscribe(
+          (data) => {
+            console.log("Cancelada.")
+            // this.modo_edicao = true;
+            // this.venda = data;
+            this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+            this.router.navigate(['venda']));
+          },
+          (error) => {
+            console.log("Aconteceu um erro no cancela venda.", error.message);
+          }
+        )
+      }
     };
 
 
@@ -107,6 +115,7 @@ export class VendaComponent implements OnInit {
         }
       )
     };
+
 
   ngOnInit(): void {
     this.loadVendas();

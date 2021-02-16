@@ -74,9 +74,6 @@ export class ItensComponent implements OnInit {
   };
 
   deleteItemVenda(id_item: number){ 
-    console.log("eu sei");
-    console.log(id_item);
-    console.log("eu nao sei");
 
     if(confirm("Você quer realmente deletar este item?"+' id: '+id_item)) {
       this.api.deleteItemVenda(id_item).subscribe(
@@ -92,7 +89,6 @@ export class ItensComponent implements OnInit {
       )
     }
   };
-  
 
   ngOnInit(): void {
     console.log("cheguei aqui")

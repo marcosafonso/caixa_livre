@@ -1,6 +1,7 @@
 
 <div class="container">
     <form>
+
         <div class="row">
             <div class="form-group col-lg-4">
                 <label for="vendedor">Selecione o Vendedor</label>
@@ -27,10 +28,10 @@
         </div>
 
 
-        <button (click)="criaVenda()" *ngIf="!modo_edicao" >
+        <button (click)="criaVenda()" *ngIf="!modo_edicao" class="btn btn-primary">
             Iniciar Venda
         </button>
-            
+        <!-- <div *ngIf="venda_form_error">{{ venda_form_error }}</div> -->
             
             <!-- <button (click)="cancel()" >
                 Cancelar
