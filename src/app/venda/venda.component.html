@@ -3,7 +3,7 @@
     <form>
         <div *ngIf="msg_finaliza_venda == 1" class="p-3 mb-2 bg-primary text-white">
             {{ final_info }}
-            <button type="button" class="btn btn-info" (click)="comeca_nova_venda()">Abrir Nova Venda</button>
+            <button type="button" class="btn btn-success" (click)="comeca_nova_venda()">Abrir Nova Venda</button>
         </div>
         <div *ngIf="msg_finaliza_venda == 2" class="p-3 mb-2 bg-danger text-white">{{ final_info }}</div>
 
