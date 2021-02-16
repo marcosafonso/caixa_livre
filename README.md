@@ -16,4 +16,7 @@ Rode na pasta raiz do projeto o comando npm install --save para fazer download d
 
 ## Servidor de desenvolvimento:
 Rode na pasta raiz do projeto o comando `ng serve` para iniciar o servidor. Vá para `http://localhost:4200/venda`.
+Garanta que o backend angular está rodando com ' python manage.py runserver' e então funcionará.
+
+Na tela de http://localhost:4200/venda você pode usar o frontend de realização da venda.
 
