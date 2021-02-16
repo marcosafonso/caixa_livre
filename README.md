@@ -9,7 +9,7 @@ Projeto gerado com o Angular CLI (https://github.com/angular/angular-cli) na ver
 
 ***Instruções de instalaçao e execução:
 
-##Clonar este repositório com git clone <urldorepositorio>.
+## Clonar este repositório com git clone <urldorepositorio>.
   
 ## Baixar dependências:
 Rode na pasta raiz do projeto o comando npm install --save para fazer download das dependências do projeto.
