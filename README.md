@@ -5,7 +5,7 @@ Projeto gerado com o Angular CLI (https://github.com/angular/angular-cli) na ver
 ***Pré-requisitos
 * Angular CLI (https://cli.angular.io/)
 * Node (https://nodejs.org/en/)
-* Baixar e rodar o projeto do backend DJANGO REST https://github.com/marcosafonso/projeto_venda.
+* Baixar e rodar o projeto do backend DJANGO REST projeto_venda https://github.com/marcosafonso/projeto_venda.
 
 ***Instruções de instalaçao e execução:
 
