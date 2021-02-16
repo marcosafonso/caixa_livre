@@ -1,27 +1,19 @@
-# VendasFrontend
+# Caixa Livre - Projeto de Frontend do ProjetoVendas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+Projeto gerado com o Angular CLI (https://github.com/angular/angular-cli) na versão 11.0.5.
 
-## Development server
+***Pré-requisitos
+* Angular CLI (https://cli.angular.io/)
+* Node (https://nodejs.org/en/)
+* Baixar e rodar o projeto do backend DJANGO REST https://github.com/marcosafonso/projeto_venda.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+***Instruções de instalaçao e execução:
 
-## Code scaffolding
+##Clonar este repositório com git clone <urldorepositorio>.
+  
+## Baixar dependências:
+Rode na pasta raiz do projeto o comando npm install --save para fazer download das dependências do projeto.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Servidor de desenvolvimento:
+Rode na pasta raiz do projeto o comando `ng serve` para iniciar o servidor. Vá para `http://localhost:4200/venda`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
