@@ -1,61 +1,60 @@
-
 <div class="container">
   <form>
 
     <div class="row">
       <div class="form-group col-lg-4">
+        <!-- input produto -->
         <label for="produto">Selecione o Produto/Serviço</label>
-        <ng-select [items]="produtos_servicos" 
-          bindLabel="descricao" 
-          bindValue="id" 
-          name="produto"
+        <ng-select [items]="produtos_servicos" bindLabel="descricao" bindValue="id" name="produto"
           [(ngModel)]="selectedProdutoServico">
         </ng-select>
+        <!-- Msg Erro -->
+        <div *ngIf="form_item_erro.produto_servico" class="text-danger">{{ form_item_erro.produto_servico }}</div>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="form-group col-lg-4">
+        <!-- Input qtd -->
         <label for="quantidade">Quantidade</label>
         <input type="number" class="form-control" name="quantidade" [(ngModel)]="item.quantidade">
-
+        <!-- Msg Erro -->
+        <div *ngIf="form_item_erro.quantidade" class="text-danger">{{ form_item_erro.quantidade }}</div>
       </div>
     </div>
 
-      <button (click)="criaItemVenda()" class="btn btn-primary">
-          Adicionar Item
-      </button>
-      
-      <!-- <button (click)="cancelar()" >
-          Cancelar
-      </button> -->
+    <button (click)="criaItemVenda()" class="btn btn-primary">
+      Adicionar Item
+    </button>
+
   </form>
 </div>
 
 <div class="container">
   <table class="table">
     <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Produto</th>
-      <th scope="col">Quantidade</th>
-      <th scope="col">Preço Unitário</th>
-      <th scope="col">Total</th>
-      <th scope="col">Ações</th>
-    </tr>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Produto</th>
+        <th scope="col">Quantidade</th>
+        <th scope="col">Preço Unitário</th>
+        <th scope="col">Total</th>
+        <th scope="col">Ações</th>
+      </tr>
     </thead>
 
     <tbody>
-    <tr *ngFor="let item of itens_vendas; index as i">
-      <th scope="row">{{ i + 1 }}</th>
-      <td>{{ item.produto_servico.descricao }}</td>
-      <td>{{ item.quantidade }}</td>
-      <td>{{ item.produto_servico.preco_unitario }}</td>
-      <td>{{ item.total }}</td>
-      <td (click)="deleteItemVenda(item.id)">{{ item.total }}</td>
-    </tr>
+      <tr *ngFor="let item of itens_vendas; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ item.id }}</td>
+        <td>{{ item.produto_servico.descricao }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td>{{ item.produto_servico.preco_unitario }}</td>
+        <td>{{ item.total }}</td>
+        <td (click)="deleteItemVenda(item.id)" class="text-danger">X</td>
+      </tr>
     </tbody>
   </table>
   <h2>Total: {{ totalizador_item | currency }}</h2>
 </div>
-
