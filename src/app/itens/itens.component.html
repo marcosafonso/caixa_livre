@@ -26,7 +26,7 @@
     <button (click)="criaItemVenda()" class="btn btn-primary">
       Adicionar Item
     </button>
-
+    <br><br>
   </form>
 </div>
 
@@ -56,5 +56,5 @@
       </tr>
     </tbody>
   </table>
-  <h2>Total: {{ totalizador_item | currency }}</h2>
+  <h2>Total: {{ totalizador_item | currency: 'BRL' }}</h2>
 </div>

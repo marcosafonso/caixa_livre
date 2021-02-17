@@ -1,5 +1,10 @@
-
 <div class="container">
+    <!-- As a heading -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Caixa Livre</span>
+        </div>
+    </nav>
     <form>
         <div *ngIf="msg_finaliza_venda == 1" class="p-3 mb-2 bg-primary text-white">
             {{ final_info }}
@@ -10,26 +15,20 @@
         <div class="row">
             <div class="form-group col-lg-4">
                 <label for="vendedor">Selecione o Vendedor</label>
-                <ng-select [items]="vendedores" 
-                    bindLabel="nome" 
-                    bindValue="id" 
-                    name="vendedor"
+                <ng-select [items]="vendedores" bindLabel="nome" bindValue="id" name="vendedor"
                     [(ngModel)]="selectedVendedor">
                 </ng-select>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="form-group col-lg-4">
                 <label for="cliente">Selecione o Cliente</label>
-                <ng-select [items]="clientes" 
-                    bindLabel="nome"
-                    bindValue="id" 
-                    name="cliente"
+                <ng-select [items]="clientes" bindLabel="nome" bindValue="id" name="cliente"
                     [(ngModel)]="selectedCliente">
                 </ng-select>
-                
-            <div *ngIf="form_erro_venda.cliente" class="text-danger">{{ form_erro_venda.cliente }}</div>
+
+                <div *ngIf="form_erro_venda.cliente" class="text-danger">{{ form_erro_venda.cliente }}</div>
             </div>
         </div>
 
@@ -38,8 +37,8 @@
             Iniciar Venda
         </button>
         <!-- <div *ngIf="venda_form_error">{{ venda_form_error }}</div> -->
-            
-            <!-- <button (click)="cancel()" >
+
+        <!-- <button (click)="cancel()" >
                 Cancelar
             </button> -->
     </form>
@@ -49,15 +48,14 @@
     <app-itens [id_venda]="venda.id"></app-itens>
 
     <div class="container" *ngIf="msg_finaliza_venda == 0 || msg_finaliza_venda == 2">
-        <button (click)="finalizaVenda()" class="btn btn-success">
+        <button (click)="finalizaVenda()" class="btn btn-outline-success mr-1">
             Finalizar Venda
         </button>
-        
-        <button (click)="cancelaVenda()" class="btn btn-warning" 
-         *ngIf="msg_finaliza_venda == 0 || msg_finaliza_venda == 2">
+
+        <button (click)="cancelaVenda()" class="btn btn-outline-warning"
+            *ngIf="msg_finaliza_venda == 0 || msg_finaliza_venda == 2">
             Cancela Venda
         </button>
     </div>
 
 </div>
-
